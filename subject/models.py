@@ -90,6 +90,5 @@ class item(models.Model):
     Question_file=models.FileField(default='NULL',blank=True,)
     Sub_discription=models.CharField(max_length=100)
     Sub_image=models.ImageField(upload_to="subject_img")
-
     def __str__(self):
         return self.Sem_Subject

@@ -1,0 +1,28 @@
+{% include 'header.html' %}
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Notes</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#micro-tab-pane" type="button" role="tab" aria-controls="micro-tab-pane" aria-selected="false">MicroSyllabus</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#question-tab-pane" type="button" role="tab" aria-controls="question-tab-pane" aria-selected="false">Old Question</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#text-tab-pane" type="button" role="tab" aria-controls="text-tab-pane" aria-selected="false">Text Book</button>
+    </li>
+  </ul>
+
+  {% for models in modela %}
+  {% csrf_token %}
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="notes-tab-pane" role="tabpanel" aria-labelledby="notes-tab" tabindex="0">Notes:<a href="{{models.Note_file.url}}">{{models.Note_file}}</a> </div>
+    <div class="tab-pane fade" id="micro-tab-pane" role="tabpanel" aria-labelledby="micro-tab" tabindex="0">MicroSyllabus : <a href="{{models.MicroSyllabus_file.url}}">{{models.MicroSyllabus_file}}</a></div>
+    <div class="tab-pane fade" id="question-tab-pane" role="tabpanel" aria-labelledby="question-tab" tabindex="0">Old Question:<a href="{{models.Question_file.url}}">{{models.Question_file}}</a></div>
+    <div class="tab-pane fade" id="text-tab-pane" role="tabpanel" aria-labelledby="text-tab" tabindex="0"> Text Book:<a href="{{models.Book_file.url}}">{{models.Book_file}}</a></div>
+  </div>
+  {% endfor %}
+
+ 

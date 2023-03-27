@@ -87,6 +87,7 @@ class item(models.Model):
     Sem_Subject = models.CharField(choices=sub_choices, max_length=15)
     MicroSyllabus_file=models.FileField(default='NULL',blank=True,null=True)
     Book_file=models.FileField(default='NULL',blank=True,null=True)
+    Note_file=models.FileField(default='NULL',blank=True,null=True)
     Question_file=models.FileField(default='NULL',blank=True,)
     Sub_discription=models.CharField(max_length=100)
     Sub_image=models.ImageField(upload_to="subject_img")

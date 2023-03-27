@@ -9,3 +9,7 @@ def home(request):
 def see(request,value):
     model=item.objects.all().filter(Semester=value)
     return render(request,'subject.html',{'model':model})
+
+def explore(request,hero):
+    modela=item.objects.all().filter(Sem_Subject=hero)
+    return render(request,'contents.html',{'modela':modela})

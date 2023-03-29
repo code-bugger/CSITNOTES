@@ -3,14 +3,14 @@ from django.db import models
 # Create your models here.
 class item(models.Model):
     Sem_Choices = [
-        ('First','First'),
-        ('Second','Second'),
-        ('Third','Third'),
-        ('Fourth','Fourth'),
-        ('Fifth','Fifth'),
-        ('Sixth','Sixth'),
-        ('Seventh','Seventh'),
-        ('Eighth','Eighth')
+        ('1','First'),
+        ('2','Second'),
+        ('3','Third'),
+        ('4','Fourth'),
+        ('5','Fifth'),
+        ('6','Sixth'),
+        ('7','Seventh'),
+        ('8','Eighth')
     ]
     Semester = models.CharField(choices=Sem_Choices, max_length=15)
     sub_choices = [
@@ -84,7 +84,7 @@ class item(models.Model):
             ('RTS', 'RTS'),
         )),
     ]
-    Sem_Subject = models.CharField(choices=sub_choices, max_length=15)
+    Subject = models.CharField(choices=sub_choices, max_length=15)
     MicroSyllabus_file=models.FileField(default='NULL',blank=True,null=True)
     Book_file=models.FileField(default='NULL',blank=True,null=True)
     Note_file=models.FileField(default='NULL',blank=True,null=True)

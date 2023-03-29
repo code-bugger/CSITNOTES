@@ -11,5 +11,5 @@ def see(request,value):
     return render(request,'subject.html',{'model':model})
 
 def explore(request,hero):
-    modela=item.objects.all().filter(Sem_Subject=hero)
+    modela=item.objects.all().filter(Subject=hero)
     return render(request,'contents.html',{'modela':modela})

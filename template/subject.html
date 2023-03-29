@@ -7,15 +7,14 @@
     <div class="card">
       <img src="{{x.Sub_image.url}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{x.Sem_Subject}}</h5>
+        <h5 class="card-title">{{x.Subject}}</h5>
         <p class="card-text">{{x.Sub_discription}}.</p>
-        <a href="/subject/explore/{{x.Sem_Subject}}" class="btn btn-primary">Go somewhere</a>
+        <a href="/subject/explore/{{x.Subject}}" class="btn btn-primary">Explore</a>
       </div>
     </div>
   </div>
   {% endfor %}
 </div>
 <br>
-{% include 'contents.html' %}
 <hr>
 {% include 'footer.html' %}

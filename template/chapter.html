@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+<h3 style="text-align: center;background-color: black;color: white;">Chapterwise Detailed Notes</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Chapters</th>
+      <th scope="col">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for x in modela%}
+    <tr>
+      <td>{{x.Sem_Subject}}</td>
+      <td><a href="{{x.MicroSyllabus_file.url}}">{{x.MicroSyllabus_file}}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

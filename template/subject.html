@@ -9,12 +9,13 @@
       <div class="card-body">
         <h5 class="card-title">{{x.Subject}}</h5>
         <p class="card-text">{{x.Sub_discription}}.</p>
-        <a href="/subject/explore/{{x.Subject}}" class="btn btn-primary">Explore</a>
+        <a href="/subject/explore/{{x.Subject}}" class="btn btn-primary">Explore Notes</a>
       </div>
     </div>
   </div>
   {% endfor %}
 </div>
+{% include 'contents.html' %}
 <br>
 <hr>
 {% include 'footer.html' %}

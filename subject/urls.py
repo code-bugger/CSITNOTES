@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('',views.home),
-    path('see/<str:value>',views.see),
+    path('<str:value>',views.home),
+
     path('explore/<str:hero>',views.explore)
 ]
 

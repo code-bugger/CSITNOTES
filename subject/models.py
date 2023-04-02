@@ -1,18 +1,23 @@
 from django.db import models
 
 # Create your models here.
-class item(models.Model):
+class Semester(models.Model):
     Sem_Choices = [
-        ('1','First'),
-        ('2','Second'),
-        ('3','Third'),
-        ('4','Fourth'),
-        ('5','Fifth'),
-        ('6','Sixth'),
-        ('7','Seventh'),
-        ('8','Eighth')
+        ('First','First'),
+        ('Second','Second'),
+        ('Third','Third'),
+        ('Fourth','Fourth'),
+        ('Fifth','Fifth'),
+        ('Sixth','Sixth'),
+        ('Seventh','Seventh'),
+        ('Eighth','Eighth')
     ]
-    Semester = models.CharField(choices=Sem_Choices, max_length=15)
+    semester = models.CharField(choices=Sem_Choices, max_length=15)
+    def __str__(self):
+        return self.semester
+
+
+class Subject(models.Model):
     sub_choices = [
         ('1', (
             ('IIT', 'IIT'),
@@ -84,12 +89,27 @@ class item(models.Model):
             ('RTS', 'RTS'),
         )),
     ]
-    Subject = models.CharField(choices=sub_choices, max_length=15)
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
+    Subject_Name = models.CharField(choices=sub_choices, max_length=15)
     MicroSyllabus_file=models.FileField(default='NULL',blank=True,null=True)
     Book_file=models.FileField(default='NULL',blank=True,null=True)
-    Note_file=models.FileField(default='NULL',blank=True,null=True)
-    Question_file=models.FileField(default='NULL',blank=True,)
-    Sub_discription=models.CharField(max_length=100)
-    Sub_image=models.ImageField(upload_to="subject_img")
+    Sub_discription=models.CharField(max_length=100,blank=True)
+    Sub_image=models.ImageField(upload_to="subject_img",blank=True,null=True)
     def __str__(self):
-        return self.Sem_Subject
+        return self.Subject_Name
+
+class Note(models.Model):
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
+    Subject_Name=models.ForeignKey(Subject, on_delete=models.CASCADE)
+    Chapter=models.CharField(max_length=30)
+    Note_file=models.FileField(default='NULL',blank=True,null=True)
+    def __str__(self):
+        return self.Chapter
+
+class Question(models.Model):
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
+    Subject_Name=models.ForeignKey(Subject, on_delete=models.CASCADE)
+    year=models.CharField(max_length=4)
+    Question_file=models.FileField(default='NULL',blank=True,)
+    def __str__(self):
+        return self.year

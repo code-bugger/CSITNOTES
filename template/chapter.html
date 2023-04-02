@@ -1,24 +1,57 @@
 {% include 'header.html' %}
 <br>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Notes</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#question-tab-pane" type="button" role="tab" aria-controls="question-tab-pane" aria-selected="false">Old Question</button>
-    </li> 
-  </ul>
-
-  {% for models in modela %}
-  {% csrf_token %}
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="notes-tab-pane" role="tabpanel" aria-labelledby="notes-tab" tabindex="0">Notes:<a href="{{models.Note_file.url}}">{{models.Note_file}}</a> </div>
-    <div class="tab-pane fade" id="micro-tab-pane" role="tabpanel" aria-labelledby="micro-tab" tabindex="0">MicroSyllabus : <a href="{{models.MicroSyllabus_file.url}}">{{models.MicroSyllabus_file}}</a></div>
-    <div class="tab-pane fade" id="question-tab-pane" role="tabpanel" aria-labelledby="question-tab" tabindex="0">Old Question:<a href="{{models.Question_file.url}}">{{models.Question_file}}</a></div>
-    <div class="tab-pane fade" id="text-tab-pane" role="tabpanel" aria-labelledby="text-tab" tabindex="0"> Text Book:<a href="{{models.Book_file.url}}">{{models.Book_file}}</a></div>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Notes</button>
+    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Old Question</button>
   </div>
-  {% endfor %}
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+    {% for models in modela %}
+    <br>
+    {{models.Chapter}}  :  <a href="{{models.Note_file.url}}">{{models.Note_file}}</a>
+    <br>
+    {% endfor %}
 
-  <br>
-  <hr>
-  {% include 'footer.html' %}
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+    {% for models in model %}
+    <br>
+    {{models.year}}  :  <a href="{{models.Question_file.url}}">{{models.Question_file}}</a>
+    <br>
+    {% endfor %}
+
+  </div>
+</div>
+<br>
+<hr>
+{% include 'footer.html' %}
+
+
+
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Notes</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Old Question</button>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+    {% for models in modela %}
+    {{models.Chapter}}  :  <a href="{{models.Note_file.url}}">{{models.Note_file}}</a>
+    <br>
+    {% endfor %}
+  </div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+    {% for models in model %}
+    {{models.year}}  :  <a href="{{models.Question_file.url}}">{{models.Question_file}}</a>
+    <br>
+    {% endfor %}
+
+  </div>
+
+</div>

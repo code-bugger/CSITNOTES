@@ -1,13 +1,16 @@
 from django.shortcuts import render
-from .models import item
-
+from .models import Subject,Note,Question
 # Create your views here.
 
 
-def home(request,value):
-    model=item.objects.all().filter(Semester=value)
+def home(request):
+    return render(request,'index.html')
+
+def subject(request,value):
+    model=Subject.objects.all().filter(semester=value)
     return render(request,'subject.html',{'model':model})
 
 def explore(request,hero):
-    modela=item.objects.all().filter(Subject=hero)
-    return render(request,'chapter.html',{'modela':modela})
+    model=Question.objects.all().filter(Subject_Name=hero)
+    modela=Note.objects.all().filter(Subject_Name=hero)
+    return render(request,'chapter.html',{'model':model,'modela':modela})

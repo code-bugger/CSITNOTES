@@ -2,7 +2,6 @@
 <table class="table table-striped table-bordered border-primary">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Subject</th>
       <th scope="col">Microsyllabus</th>
       <th scope="col">Book</th>
@@ -11,7 +10,6 @@
   <tbody>
     {% for x in model%}
     <tr>
-      <th scope="row">1</th>
       <td>{{x.Subject_Name}}</td>
       <td><a href="{{x.MicroSyllabus_file.url}}">Download</a></td>
       <td><a href="{{x.Book_file.url}}">Download</a></td>

@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for models in modela %}
+        {% for models in model %}
         <tr>
           <td>{{models.Chapter}} </td>
           <td><a href="{{models.Note_file.url}}">{{models.Note_file}}</a></td>
@@ -40,7 +40,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for models in model %}
+        {% for models in modela %}
         <tr>
           <td>{{models.year}} </td>
           <td><a href="{{models.Question_file.url}}">{{models.Question_file}}</a></td>

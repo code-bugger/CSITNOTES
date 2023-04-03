@@ -11,12 +11,12 @@ def subject(request,value):
     return render(request,'subject.html',{'model':model})
 
 def explore(request,hero):
-    model=Question.objects.all().filter(Subject_Name=hero)
-    modela=Note.objects.all().filter(Subject_Name=hero)
+    model=Note.objects.all().filter(Subject_Name=hero)
+    modela=Question.objects.all().filter(Subject_Name=hero)
     return render(request,'chapter.html',{'model':model,'modela':modela})
 
 def searchbar(request):
     if request.method=="GET":
         val=request.GET.get('search')
         model=Note.objects.filter(Chapter__contains=val)
-    return render(request,'chapter.html',{'model':model})
+    return render(request,'Search.html',{'model':model})

@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('',views.home),
     path('<int:value>',views.subject),
-    path('explore/<int:hero>',views.explore)
+    path('explore/<int:hero>',views.explore),
+    path('searchbar/',views.searchbar,name='searchbar'),
 ]
 
